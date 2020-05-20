@@ -4,6 +4,7 @@ import { dislikePet, likePet, setPets, superLikePet } from './actions/actions';
 import Card from './components/Card';
 const shuffle = require('lodash/shuffle');
 const dogNames = require('dog-names');
+const catNames = require('cat-names');
 
 export default function DogManager() {
   const currentDog = useSelector((state) => state[0]);
@@ -28,7 +29,7 @@ export default function DogManager() {
           .then((catObj) => {
             return catObj.map((value) => {
               return {
-                name: 'cat',
+                name: catNames.random(),
                 image: value.url,
               };
             });
