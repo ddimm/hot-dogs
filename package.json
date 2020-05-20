@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dog-names": "^2.0.0",
     "grommet": "^2.13.0",
     "grommet-icons": "^4.4.0",
+    "pokemon": "^2.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
