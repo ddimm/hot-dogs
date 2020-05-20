@@ -1,9 +1,10 @@
-export const LIKE_DOG = "LIKE_DOG";
-export const DISLIKE_DOG = "DISLIKE_DOG";
+export const LIKE_DOG = 'LIKE_DOG';
+export const DISLIKE_DOG = 'DISLIKE_DOG';
 
-export const SUP_LIKE_DOG = "SUP_LIKE_DOG";
+export const SUP_LIKE_DOG = 'SUP_LIKE_DOG';
 
-export const SET_DOGS = "SET_DOGS";
+export const SET_DOGS = 'SET_DOGS';
+export const ADD_ANIMAL = 'ADD_ANIMAL';
 
 /**
  *
@@ -40,5 +41,17 @@ export function setDogs(dogs) {
   return {
     type: SET_DOGS,
     dogs,
+  };
+}
+/**
+ * adds a new animal to the end of the list
+ *
+ * @param  animal new animal/dog to add to the list
+ *
+ */
+export function addAnimal(animal) {
+  return {
+    type: ADD_ANIMAL,
+    animal,
   };
 }

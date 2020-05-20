@@ -5,6 +5,7 @@ import Button from './components/Button';
 import Card from './components/Card';
 import DogManager from './DogManager';
 import { reducer } from './reducers/reducers';
+
 const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
