@@ -1,6 +1,8 @@
 import React from 'react';
-import { Box, Stack, Text, Button, Anchor } from 'grommet';
 import Image from './Image';
+import Button from './Button';
+
+import { Stack, Box, Button as GrommetButton, Grommet, Text } from 'grommet';
 
 const Card = () => {
   return (
