@@ -3,7 +3,11 @@ import { Dislike, Like, Favorite } from 'grommet-icons';
 import { Box, Button as GrommetButton } from 'grommet';
 
 import { useDispatch } from 'react-redux';
-import { likeDog, dislikeDog, superLikeDog } from '../actions/actions';
+import {
+  likePet as likeDog,
+  dislikePet as dislikeDog,
+  superLikePet as superLikeDog,
+} from '../actions/actions';
 
 const Button = () => {
   const dispatch = useDispatch();
