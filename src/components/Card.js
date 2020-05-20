@@ -1,16 +1,24 @@
 import React from 'react';
-import { Box } from 'grommet';
+import { Box, Stack, Text, Button, Anchor } from 'grommet';
+import Image from './Image';
 
 const Card = () => {
   return (
-    <Box
-      direction="row"
-      border={{ color: 'brand', size: 'large' }}
-      pad="medium"
-    >
-      <Box pad="small" background="dark-3" />
-      <Box pad="medium" background="light-3" />
-    </Box>
+    <div>
+      <Stack anchor="center">
+        <Box background="dark-2" pad="medium" round gap="small">
+          <Box
+            background={{ color: 'gray', dark: true }}
+            pad="medium"
+            round
+            gap="small"
+          >
+            <Image />
+          </Box>
+          <Button />
+        </Box>
+      </Stack>
+    </div>
   );
 };
 

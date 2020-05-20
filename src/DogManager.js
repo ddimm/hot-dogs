@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { likeDog, dislikeDog, superLikeDog } from './actions/actions';
+import Image from './components/Image';
+import Card from './components/Card';
 
 export default function DogManager() {
   const currentDog = useSelector((state) => state[0]);
@@ -14,6 +16,8 @@ export default function DogManager() {
   }
   return (
     <div>
+      <Card />
+
       <div style={{ flexDirection: 'row' }}>
         <button
           onClick={() => {
@@ -37,7 +41,6 @@ export default function DogManager() {
           like
         </button>
       </div>
-      <img src={currentDog.image} alt="a dog" />
     </div>
   );
 }
