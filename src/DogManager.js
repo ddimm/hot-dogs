@@ -7,8 +7,12 @@ import {
   setDogs,
   addAnimal,
 } from './actions/actions';
+
+import Image from './components/Image';
+import Card from './components/Card';
 const dogNames = require('dog-names');
 const pokemon = require('pokemon');
+
 export default function DogManager() {
   const currentDog = useSelector((state) => state[0]);
 
@@ -61,6 +65,8 @@ export default function DogManager() {
   }
   return (
     <div>
+      <Card />
+
       <div style={{ flexDirection: 'row' }}>
         <button
           onClick={() => {
@@ -84,7 +90,6 @@ export default function DogManager() {
           like
         </button>
       </div>
-      <img src={currentDog.image} alt="a dog" />
     </div>
   );
 }
