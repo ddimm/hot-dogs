@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { likeDog, dislikeDog, superLikeDog } from '../actions/actions';
+import { likePet, dislikePet, superLikePet } from '../actions/actions';
 import { Image as GrommetImage, Box } from 'grommet';
 
 const Image = () => {

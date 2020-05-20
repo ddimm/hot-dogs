@@ -1,10 +1,10 @@
-export const LIKE_DOG = 'LIKE_DOG';
-export const DISLIKE_DOG = 'DISLIKE_DOG';
+export const LIKE_PET = 'LIKE_DOG';
+export const DISLIKE_PET = 'DISLIKE_DOG';
 
-export const SUP_LIKE_DOG = 'SUP_LIKE_DOG';
+export const SUP_LIKE_PET = 'SUP_LIKE_DOG';
 
-export const SET_DOGS = 'SET_DOGS';
-export const ADD_ANIMAL = 'ADD_ANIMAL';
+export const SET_PETS = 'SET_DOGS';
+export const ADD_PETS = 'ADD_ANIMAL';
 
 /**
  *
@@ -12,34 +12,34 @@ export const ADD_ANIMAL = 'ADD_ANIMAL';
  * marks the first dog in dogs list as `liked` and moves it to the end of the list
  *
  */
-export function likeDog() {
+export function likePet() {
   return {
-    type: LIKE_DOG,
+    type: LIKE_PET,
   };
 }
 /**
  * marks the first dog in dogs list as `disliked` and moves it to the end of the list
  */
-export function dislikeDog() {
+export function dislikePet() {
   return {
-    type: DISLIKE_DOG,
+    type: DISLIKE_PET,
   };
 }
 /**
  * marks the first dog in dogs list as `superliked` and moves it to the end of the list
  */
-export function superLikeDog() {
+export function superLikePet() {
   return {
-    type: SUP_LIKE_DOG,
+    type: SUP_LIKE_PET,
   };
 }
 /**
  *  overwrites all dog data with a new list
  * @param {Array} dogs the new list of dogs to overwrite the current dogs list
  */
-export function setDogs(dogs) {
+export function setPets(dogs) {
   return {
-    type: SET_DOGS,
+    type: SET_PETS,
     dogs,
   };
 }
@@ -51,7 +51,7 @@ export function setDogs(dogs) {
  */
 export function addAnimal(animal) {
   return {
-    type: ADD_ANIMAL,
+    type: ADD_PETS,
     animal,
   };
 }

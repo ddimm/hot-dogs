@@ -1,35 +1,35 @@
 import {
-  LIKE_DOG,
-  DISLIKE_DOG,
-  SUP_LIKE_DOG,
-  SET_DOGS,
-  ADD_ANIMAL,
+  LIKE_PET,
+  DISLIKE_PET,
+  SUP_LIKE_PET,
+  SET_PETS,
+  ADD_PETS,
 } from '../actions/actions';
 
 const initState = [];
 
 export function reducer(state = initState, action) {
   switch (action.type) {
-    case LIKE_DOG: {
+    case LIKE_PET: {
       const currentDog = { ...[...state].reverse().pop(), status: 'liked' };
       return [...state.slice(1), currentDog];
     }
-    case DISLIKE_DOG: {
+    case DISLIKE_PET: {
       const currentDog = { ...[...state].reverse().pop(), status: 'disliked' };
 
       return [...state.slice(1), currentDog];
     }
-    case SUP_LIKE_DOG: {
+    case SUP_LIKE_PET: {
       const currentDog = {
         ...[...state].reverse().pop(),
         status: 'superliked',
       };
       return [...state.slice(1), currentDog];
     }
-    case SET_DOGS: {
+    case SET_PETS: {
       return action.dogs;
     }
-    case ADD_ANIMAL: {
+    case ADD_PETS: {
       return [...state, action.animal];
     }
     default: {

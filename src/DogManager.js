@@ -1,17 +1,9 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  likeDog,
-  dislikeDog,
-  superLikeDog,
-  setDogs,
-  addAnimal,
-} from './actions/actions';
-
-import Image from './components/Image';
+import { useDispatch, useSelector } from 'react-redux';
+import { dislikePet, likePet, setPets, superLikePet } from './actions/actions';
 import Card from './components/Card';
+const shuffle = require('lodash/shuffle');
 const dogNames = require('dog-names');
-const pokemon = require('pokemon');
 
 export default function DogManager() {
   const currentDog = useSelector((state) => state[0]);
@@ -19,37 +11,30 @@ export default function DogManager() {
   const dispatch = useDispatch();
   useEffect(() => {
     fetch('https://dog.ceo/api/breeds/image/random/10')
-      .then((resp) => {
-        return resp.json();
+      .then((dogResp) => {
+        return dogResp.json();
       })
-      .then(({ message }) => {
-        dispatch(
-          setDogs(
-            message.map((value) => {
-              return {
-                image: value,
-                name: dogNames.allRandom(),
-              };
-            })
-          )
-        );
+      .then((dogObj) => {
+        const { message } = dogObj;
+        return message.map((value) => {
+          return { image: value, name: dogNames.allRandom() };
+        });
       })
-      .then(() => {
-        fetch(
-          `https://pokeapi.co/api/v2/pokemon/${pokemon.getId(
-            pokemon.random()
-          )}/`
-        )
-          .then((pokeResp) => {
-            return pokeResp.json();
+      .then((dogList) => {
+        fetch('https://api.thecatapi.com/v1/images/search?limit=10')
+          .then((catResp) => {
+            return catResp.json();
           })
-          .then((pokeObj) => {
-            dispatch(
-              addAnimal({
-                name: pokeObj.name,
-                image: pokeObj.sprites.front_default,
-              })
-            );
+          .then((catObj) => {
+            return catObj.map((value) => {
+              return {
+                name: 'cat',
+                image: value.url,
+              };
+            });
+          })
+          .then((catList) => {
+            dispatch(setPets(shuffle([...dogList, ...catList])));
           });
       });
   }, [dispatch]);
@@ -59,7 +44,7 @@ export default function DogManager() {
   if (currentDog.status) {
     return (
       <div>
-        <p>all dogs viewed</p>
+        <p>all animals viewed</p>
       </div>
     );
   }
@@ -70,21 +55,21 @@ export default function DogManager() {
       <div style={{ flexDirection: 'row' }}>
         <button
           onClick={() => {
-            dispatch(dislikeDog());
+            dispatch(dislikePet());
           }}
         >
           dislike
         </button>
         <button
           onClick={() => {
-            dispatch(superLikeDog());
+            dispatch(superLikePet());
           }}
         >
           superlike
         </button>
         <button
           onClick={() => {
-            dispatch(likeDog());
+            dispatch(likePet());
           }}
         >
           like
