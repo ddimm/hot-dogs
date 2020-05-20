@@ -1,10 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import Button from './components/Button';
-import Card from './components/Card';
-import DogManager from './DogManager';
 import { reducer } from './reducers/reducers';
+import DogManager from './DogManager';
 import { grommet } from 'grommet/themes';
 import { Grommet } from 'grommet';
 

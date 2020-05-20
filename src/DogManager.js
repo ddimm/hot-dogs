@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dislikePet, likePet, setPets, superLikePet } from './actions/actions';
+=======
+import React from 'react';
+import { useSelector } from 'react-redux';
+>>>>>>> ui
 import Card from './components/Card';
 const shuffle = require('lodash/shuffle');
 const dogNames = require('dog-names');
@@ -8,6 +13,7 @@ const catNames = require('cat-names');
 
 export default function DogManager() {
   const currentDog = useSelector((state) => state[0]);
+<<<<<<< HEAD
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -42,6 +48,8 @@ export default function DogManager() {
   if (!currentDog) {
     return <h1>loading</h1>;
   }
+=======
+>>>>>>> ui
   if (currentDog.status) {
     return (
       <div>
@@ -49,6 +57,7 @@ export default function DogManager() {
       </div>
     );
   }
+<<<<<<< HEAD
   return (
     <div>
       <Card />
@@ -78,4 +87,7 @@ export default function DogManager() {
       </div>
     </div>
   );
+=======
+  return <Card />;
+>>>>>>> ui
 }

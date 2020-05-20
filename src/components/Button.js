@@ -1,17 +1,44 @@
 import React from 'react';
-import { Close, Send, User } from 'grommet-icons';
-import { Box, Button as GrommetButton, Grommet, Text } from 'grommet';
+import { Dislike, Like, Favorite } from 'grommet-icons';
+import { Box, Button as GrommetButton } from 'grommet';
+
+import { useDispatch } from 'react-redux';
+import { likeDog, dislikeDog, superLikeDog } from '../actions/actions';
 
 const Button = () => {
+  const dispatch = useDispatch();
+
   return (
     <div>
-      <Box align="center" pad="large">
-        <Text margin="small"> plain=false (includes padding and border)</Text>
-        <Box direction="row">
-          <Button plain={false} icon={<Close />} onClick={() => {}} primary />
-          <Button plain={false} icon={<Send />} onClick={() => {}} />
-          <Button plain={false} icon={<User />} onClick={() => {}} />
-        </Box>
+      <Box
+        direction="row"
+        align="center"
+        justify=" between"
+        // display="flex"
+        // justify-content="center"
+      >
+        <GrommetButton
+          plain={false}
+          icon={<Dislike />}
+          onClick={() => {
+            dispatch(dislikeDog());
+          }}
+          primary
+        />
+        <GrommetButton
+          plain={false}
+          icon={<Like />}
+          onClick={() => {
+            dispatch(likeDog());
+          }}
+        />
+        <GrommetButton
+          plain={false}
+          icon={<Favorite />}
+          onClick={() => {
+            dispatch(superLikeDog());
+          }}
+        />
       </Box>
     </div>
   );
