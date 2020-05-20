@@ -1,8 +1,11 @@
-import React from "react";
-import { createStore } from "redux";
-import { reducer } from "./reducers/reducers";
-import { Provider, useSelector, useDispatch } from "react-redux";
-import { likeDog, dislikeDog, superLikeDog } from "./actions/actions";
+import React from 'react';
+import { createStore } from 'redux';
+import { reducer } from './reducers/reducers';
+import { Provider, useSelector, useDispatch } from 'react-redux';
+import { likeDog, dislikeDog, superLikeDog } from './actions/actions';
+import Button from './components/Button';
+import Card from './components/Card';
+
 const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -12,6 +15,8 @@ function App() {
     <Provider store={store}>
       <div>
         <DogManager />
+        <Card />
+        <Button />
       </div>
     </Provider>
   );
@@ -31,7 +36,7 @@ function DogManager() {
   }
   return (
     <div>
-      <div style={{ flexDirection: "row" }}>
+      <div style={{ flexDirection: 'row' }}>
         <button
           onClick={() => {
             dispatch(dislikeDog());
