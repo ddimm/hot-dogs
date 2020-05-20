@@ -3,7 +3,7 @@ import { Dislike, Like, Favorite } from 'grommet-icons';
 import { Box, Button as GrommetButton } from 'grommet';
 
 import { useDispatch } from 'react-redux';
-import { likeDog, dislikeDog, superLikeDog } from '../actions/actions';
+import { likePet, dislikePet, superLikePet } from '../actions/actions';
 
 const Button = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Button = () => {
           plain={false}
           icon={<Dislike />}
           onClick={() => {
-            dispatch(dislikeDog());
+            dispatch(dislikePet());
           }}
           primary
         />
@@ -29,14 +29,14 @@ const Button = () => {
           plain={false}
           icon={<Like />}
           onClick={() => {
-            dispatch(likeDog());
+            dispatch(likePet());
           }}
         />
         <GrommetButton
           plain={false}
           icon={<Favorite />}
           onClick={() => {
-            dispatch(superLikeDog());
+            dispatch(superLikePet());
           }}
         />
       </Box>
